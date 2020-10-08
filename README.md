@@ -1,4 +1,4 @@
-# Virtual Machine - Assembler traductor (Tanembaum Architecture)
+# Virtual Machine - Assembler translator (Tanembaum Architecture)
 
 This was a project for my University's Architecture of Computers subject developed in 2018 by Lucia G., Ezequiel W and me. 
 It's a virtual machine replicating the Tanembaum's famous architecture. 
@@ -67,4 +67,6 @@ where
  - [inputs.dat] is a read only file to load a custom dump to the memory 
  - [output.txt] is the output file for memory dump
 ```
+
+## Program Example
 
