@@ -25,9 +25,13 @@ This virtual machine has the following components:
 ## Assembler instructions supported:
 
 * MOV
+* PUSH, POP (for the stack)
+* CALL
+* RET
 * ADD, SUB, MUL, DIV
 * MOD
 * CMP
+* SMOV, SCMP, SLEN (for strings comparisons)
 * AND, OR, XOR, NOT
 * LSHITF, RSHIFT
 * SWAP
@@ -42,6 +46,13 @@ This virtual machine has the following components:
 * JNZ
 * SYS
 * STOP
+
+It also supports custom labes with the EQU instruction, for example
+```
+CUSTOM_LABEL EQU 0032
+   ...
+CUSTOM_LABEL: ADD[1000], 1
+```
 
 ## Usage
 
