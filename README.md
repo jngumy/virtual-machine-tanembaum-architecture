@@ -1,10 +1,10 @@
-# Virtual Machine - Assembler translator (Tanembaum Architecture)
+# Virtual Machine - Assembly translator (Tanembaum Architecture)
 
 This was a project for my University's Architecture of Computers subject developed in 2018 by Lucia G., Ezequiel W and me. 
 It's a virtual machine replicating the Tanembaum's famous architecture. 
 The system can :
 
-* read a program written in assembler (.asm files)
+* read a program written in assembly (.asm files)
 * translate it to machine code (for Tanembaum virtual architecture)
 * simulate the execution.
 
@@ -53,6 +53,7 @@ CUSTOM_LABEL EQU 0032
    ...
 CUSTOM_LABEL: ADD[1000], 1
 ```
+For comment lines, use *
 
 ## Usage
 
@@ -62,11 +63,55 @@ virtual-machine-architecture.exe [-op] [code.asm] [machine.img] [inputs.dat] [ou
 where
  ```
  - [op] is the operation ( <<T>> translate, <<X>> execute and <<A>> translate and execute )
- - [code.asm] is the source code of your assembler program
+ - [code.asm] is the source code of your assembly program
  - [machine.img] is the binary file generated post translation
  - [inputs.dat] is a read only file to load a custom dump to the memory 
  - [output.txt] is the output file for memory dump
 ```
 
 ## Program Example
+Write your code in a text file with the .asm extension like this:
+ ```assembly
+*	void inorden(Arbol *A){
+*  	if(*A != null){
+*		inorden(A->izq);
+*		printf("%d\n, A->dato);
+*        	inorden(A->der);
+*	}
+ 
+    IZQ EQU 1
+    DER EQU 2
 
+    PUSH BX
+    CALL INORDEN
+    ADD SP,1
+    STOP
+
+
+INORDEN: PUSH BP
+         MOV BP, SP
+         PUSH FX
+      
+         MOV FX, [BP+2]
+         CMP FX, -1
+         JZ FIN2
+      
+         PUSH [FX+IZQ]
+         CALL INORDEN
+         ADD SP, 1
+ 
+         MOV AX, %A5
+         MOV CX, 1
+         MOV DX, FX
+         SYS 2
+
+         
+         PUSH [FX+DER]
+         CALL INORDEN
+         ADD SP, 1
+
+FIN2:    POP FX
+         MOV SP, BP
+         POP BP
+         RET
+```
