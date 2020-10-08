@@ -22,7 +22,7 @@ This virtual machine has the following components:
 * 1 Stack Pointer register : SP
 * 1 Base Pointer register: BP
 
-## Assembler instructions supported:
+## Assembly instructions supported:
 
 * MOV
 * PUSH, POP (for the stack)
