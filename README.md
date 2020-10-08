@@ -1,7 +1,7 @@
 # Virtual Machine - Assembly translator (Tanembaum Architecture)
 
 This was a project for my University's Architecture of Computers subject developed in 2018 by Lucia G., Ezequiel W and me. 
-It's a virtual machine replicating the Tanembaum's famous architecture. 
+It's a 16-bit virtual machine (replicating the Tanembaum's famous architecture. 
 The system can :
 
 * read a program written in assembly (.asm files)
